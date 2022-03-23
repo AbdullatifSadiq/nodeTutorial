@@ -9,3 +9,7 @@ console.log(os.arch())
 // CPU core info
 console.log(os.cpus())
 
+// Memory info
+console.log(os.totalmem())
+console.log(os.freemem())
+
