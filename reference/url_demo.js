@@ -19,3 +19,7 @@ console.log(myUrl.search)
 
 // Params object
 console.log(myUrl.searchParams)
+
+// Adding params
+myUrl.searchParams.append('abc','123')
+console.log(myUrl.searchParams)
