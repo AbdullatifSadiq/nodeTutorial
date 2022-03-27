@@ -1,17 +1,32 @@
-const Logger = require('./logger')
+const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
 
-const logger = new Logger()
+const server = http.createServer((req,res) =>{
+     if(req.url === '/') {
+          fs.readFile(path.join(__dirname,'public', 'index.html'),(err,content)=>{
+               if(err) throw err
+               res.writeHead(200, {'Content-Type': 'text/html'})
+               res.end(content)
 
-logger.on('message', data => console.log('Called Listener',data))
+          })
 
-logger.log('Hello world')
+     }
+     if(req.url === '/api/users') {
+         const users = [
+              {name:'ASDFR', age: 23},
+              {name:'qqwee', age: 43}
 
-fs.writeFile(path.join(__dirname,'/test','logs.txt'),logger.log('Hello World'), err => {
-     if(err) throw err
-     console.log('File written to....')
+         ]
+         res.writeHead(200, {'Content-Type': 'application/json'})
+         res.end(JSON.stringify(users))
+     }
 })
+
+const PORT = process.env.PORT || 5000
+
+server.listen(PORT, ()=> console.log(`Server running on port ${PORT}`))
+
  
      
