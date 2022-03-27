@@ -15,10 +15,10 @@ const path = require('path')
 //     console.log('File written to....')
 
 //     // Appending to a
-//     fs.appendFile(path.join(__dirname,'/test','hello.txt'),' I love Node', err => {
-//         if(err) throw err
-//         console.log('File written to....')
-//     })
+    // fs.appendFile(path.join(__dirname,'/test','hello.txt'),' I love Node', err => {
+    //     if(err) throw err
+    //     console.log('File written to....')
+    // })
 // })
 
 // Read from a file
